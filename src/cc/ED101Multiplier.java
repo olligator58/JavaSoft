@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ED101Multiplier {
     private static final List<String> header = new ArrayList<>();
@@ -25,7 +24,7 @@ public class ED101Multiplier {
     private static final String EDNO_BEGIN = "3";
 
     public static void main(String[] args) {
-        String sourcePath = getSourceFile();
+        String sourcePath = FileHelper.chooseSourceFile("Выберите файл ED101");
         if (sourcePath != null) {
             String destPath = getDestinationFile(sourcePath);
             Charset charsetSource = Charset.forName(SOURCE_CODEPAGE);
@@ -77,22 +76,6 @@ public class ED101Multiplier {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    private static String getSourceFile() {
-        String result;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Введите путь к файлу ED101:");
-        result = keyboard.nextLine();
-        try (FileInputStream fis = new FileInputStream(result)) {
-        } catch (IOException e) {
-            result = null;
-            System.out.println("Путь к файлу введен неверно");
-            ;
-        } finally {
-            keyboard.close();
-            return result;
         }
     }
 

@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Scanner;
 
 public class Ft14MultAddRef {
     private enum RefType {
@@ -18,8 +17,8 @@ public class Ft14MultAddRef {
     }
 
     private static final List<String> stringsList = new ArrayList<>();
-    private static final int BEGIN_COUNTER = 700;
-    private static final int NUM_OF_REPEATS = 1;
+    private static final int BEGIN_COUNTER = 100;
+    private static final int NUM_OF_REPEATS = 40;
     private static final RefType REF_TYPE = RefType.MT103;
     private static final boolean IS_MIS01s = false;
     private static final String SOURCE_CODEPAGE = "ISO8859_5"; //Cp866 для DOS, Cp1251 для Windows-1251, KOI8_R для КОИ-8
@@ -30,7 +29,6 @@ public class Ft14MultAddRef {
     private static final String REF_BEGIN_202 = "DEUTDEFF4XX1134013";
 
     public static void main(String[] args) {
-//        String sourcePath = getSourceFile();
         String sourcePath = FileHelper.chooseSourceFile("Выберите файл FT14");
         if (sourcePath != null) {
             String destPath = getDestinationFile(sourcePath);
@@ -56,22 +54,6 @@ public class Ft14MultAddRef {
             }
         }
     }
-
-    /*private static String getSourceFile() {
-        String result;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Введите путь к файлу FT14:");
-        result = keyboard.nextLine();
-        try (FileInputStream fis = new FileInputStream(result)) {
-        } catch (IOException e) {
-            result = null;
-            System.out.println("Путь к файлу введен неверно");
-            ;
-        } finally {
-            keyboard.close();
-            return result;
-        }
-    }*/
 
     private static String getDestinationFile(String sourceFile) {
         String sourceFileName = Path.of(sourceFile).getFileName().toString();
