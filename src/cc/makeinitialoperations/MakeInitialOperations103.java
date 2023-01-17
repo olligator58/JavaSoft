@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Scanner;
 
 public class MakeInitialOperations103 {
     private static final String DEST_FILE_NAME = "init103.txt";
@@ -24,7 +23,6 @@ public class MakeInitialOperations103 {
     private static final int TAG_MAX_LENGTH = 35;
 
     public static void main(String[] args) {
-//        String sourcePath = getSourceFile();
         String sourcePath = FileHelper.chooseSourceFile("Выберите файл FT14");
         if (sourcePath != null) {
             String destPath = getDestinationFile(sourcePath);
@@ -45,22 +43,6 @@ public class MakeInitialOperations103 {
             }
         }
     }
-
-    /*private static String getSourceFile() {
-        String result;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Введите путь к файлу FT14:");
-        result = keyboard.nextLine();
-        try (FileInputStream fis = new FileInputStream(result)) {
-        } catch (IOException e) {
-            result = null;
-            System.out.println("Путь к файлу введен неверно");
-            ;
-        } finally {
-            keyboard.close();
-            return result;
-        }
-    }*/
 
     private static String getDestinationFile(String sourceFile) {
         return Path.of(sourceFile).getParent().resolve(Path.of(DEST_FILE_NAME)).toString();
