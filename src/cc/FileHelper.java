@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.WindowEvent;
 
 public class FileHelper {
+    private static final String DEFAULT_DIRECTORY = "C:\\work\\аж\\files\\";
 
     public static String chooseSourceFile(String requestText) {
         String result = null;
@@ -14,7 +15,7 @@ public class FileHelper {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
         }
-        JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser(DEFAULT_DIRECTORY);
         if (fileChooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
             result = fileChooser.getSelectedFile().toString();
         } else {
@@ -33,7 +34,7 @@ public class FileHelper {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
         }
-        JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser(DEFAULT_DIRECTORY);
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setAcceptAllFileFilterUsed(false);
         if (fileChooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
