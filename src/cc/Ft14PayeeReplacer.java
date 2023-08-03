@@ -45,6 +45,7 @@ public class Ft14PayeeReplacer {
             e.printStackTrace();
         }
 
+        int counter = 0;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(sourcePath), sourceCharset));
              PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(destPath), destCharset))) {
             while (reader.ready()) {
@@ -55,6 +56,7 @@ public class Ft14PayeeReplacer {
                 for (String[] rule : rules) {
                     if (payeeCorrAcc.equals(rule[0]) && payeeBik.equals(rule[1]) && payeeAcc.equals(rule[2])) {
                         line = modifyLine(line, rule);
+                        counter++;
                         break;
                     }
                 }
@@ -63,6 +65,7 @@ public class Ft14PayeeReplacer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(String.format("Всего строк обработано: %s", counter));
     }
 
     private static String getDestinationFile(String sourceFile) {
