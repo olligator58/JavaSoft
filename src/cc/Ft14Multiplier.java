@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Ft14Multiplier {
     private static final List<String> stringsList = new ArrayList<>();
     private static final int BEGIN_COUNTER = 100;
-    private static final int NUM_OF_REPEATS = 10;
+    private static final int NUM_OF_REPEATS = 32;
     private static final String SOURCE_CODEPAGE = "ISO8859_5"; //Cp866 для DOS, Cp1251 для Windows-1251, KOI8_R для КОИ-8
     private static final String DEST_CODEPAGE = "ISO8859_5";
 

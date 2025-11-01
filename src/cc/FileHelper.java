@@ -11,6 +11,7 @@ public class FileHelper {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         System.out.println(requestText);
+        JOptionPane.showMessageDialog(null, requestText, "Выберите файл", JOptionPane.INFORMATION_MESSAGE);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
@@ -20,6 +21,7 @@ public class FileHelper {
             result = fileChooser.getSelectedFile().toString();
         } else {
             System.out.println("Вы не выбрали требуемый файл. Попробуйте снова.");
+            JOptionPane.showMessageDialog(null, "Вы не выбрали требуемый файл. Попробуйте снова.", "Ошибка", JOptionPane.ERROR_MESSAGE);
         }
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
         return result;
@@ -30,6 +32,7 @@ public class FileHelper {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         System.out.println(requestText);
+        JOptionPane.showMessageDialog(null, requestText, "Выберите каталог", JOptionPane.INFORMATION_MESSAGE);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
@@ -41,6 +44,7 @@ public class FileHelper {
             result = fileChooser.getSelectedFile().toString();
         } else {
             System.out.println("Вы не выбрали требуемый каталог. Попробуйте снова.");
+            JOptionPane.showMessageDialog(null, "Вы не выбрали требуемый каталог. Попробуйте снова.", "Ошибка", JOptionPane.ERROR_MESSAGE);
         }
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
         return result;
